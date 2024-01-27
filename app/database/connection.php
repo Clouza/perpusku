@@ -26,4 +26,10 @@ class Connection
     {
         return $this->conn;
     }
+
+    public function login(string $username, string $password)
+    {
+        $sql = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
+        return $this->conn->query($sql);
+    }
 }

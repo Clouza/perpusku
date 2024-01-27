@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['login'])) {
+    header("Location: /login");
+}
+
 require_once '../handlers/Book.php';
 $book = new \App\Handler\Book;
 
@@ -17,6 +23,7 @@ $i = 1;
 
 <body>
     <a href="/add">Add Book</a>
+    <a href="/logout">Logout</a>
     <table border="1">
         <tr>
             <th>#</th>
